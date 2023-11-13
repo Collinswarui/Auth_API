@@ -1,10 +1,22 @@
 // route for each user auth endpoint
 
 import express from 'express'
-import { authUser } from '../controllers/userController.js'
 const router = express.Router()
 
+import { 
+    authUser,
+    registerUser,
+    logoutUser,
+    getUserProfile,
+    updateUserProfile
+ } from '../controllers/userController.js'
+
+router.post('/', registerUser)
 router.post('/auth', authUser)
+router.post('/logout', logoutUser)
+router.route('/profile').get(getUserProfile).put(updateUserProfile)
+
+
 
 
 export default router
