@@ -74,14 +74,39 @@ const logoutUser = asyncHandler( async (req, res) => {
 // route   GET api/users/profile
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'User Profile'})
+    const user = {
+        _id: req.user._id,
+        name: req.user.name,
+        eamil: req.user.email,
+    }
+    res.status(200).json(user)
 })
 
 // @desc   Update User Profile
 // route   PUT api/users/profile
 // @access Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Update user profile'})
+    const user = await User.findById(req.user._id)
+
+    if(user) {
+        user.name = req.body.name || user.name
+        user.email = req.body.email || user.email
+
+        if (req.body.password) {
+            user.password = req.body.password
+        }
+
+        const updatedUser = await user.save()
+
+        res.status(200).json({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+        })
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
 })
 
 
