@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 
 
-
+// Header not displaying please debug
 const Header = () => {
     return (
         <header>
