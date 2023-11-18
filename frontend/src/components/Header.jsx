@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
+import { LinkContainer } from 'react-router-bootstrap'
 
 
 // Header not displaying please debug
@@ -8,16 +9,22 @@ const Header = () => {
         <header>
           <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
             <Container>
-              <Navbar.Brand href='/'>MERN APP</Navbar.Brand>
+              <LinkContainer to='/'>
+                <Navbar.Brand>MERN APP</Navbar.Brand>
+              </LinkContainer>
               <Navbar.Toggle aria-controls='basic-navbar-nav' />
               <Navbar.Collapse id='basic-navbar-nav'>
                 <Nav className="ms-auto">
-                  <Nav.Link href='/login'>
+                  <LinkContainer to='/login'>
+                  <Nav.Link>
                     <FaSignInAlt /> Sign In
                   </Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/register'>
                   <Nav.Link href='register'>
                     <FaSignOutAlt /> Sign Up
                   </Nav.Link>
+                  </LinkContainer>
                 </Nav>
               </Navbar.Collapse>
             </Container>
