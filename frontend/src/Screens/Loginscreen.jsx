@@ -19,7 +19,7 @@ const LoginScreen = () => {
 
             <Form onSubmit={ submitHandler}>
               <Form.Group className="my-2" controlId="email">
-                <Form.Label>Email Address</Form.Label>
+                <Form.Label>Email Address:</Form.Label>
                 <Form.Control
                     type='email'
                     placeholder="Enter Email"
@@ -28,7 +28,7 @@ const LoginScreen = () => {
                 ></Form.Control>
               </Form.Group>
               <Form.Group className="my-2" controlId="password">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control
                     type='password'
                     placeholder="Enter Password"
