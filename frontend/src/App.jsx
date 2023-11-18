@@ -1,11 +1,13 @@
 import React from 'react'
 import Header from './components/Header.jsx'
+import HomeScreen from './Screens/HomeScreen.jsx'
 
 const App = () => {
   return (
     <>
      <Header />
-     <h1>Mern App</h1>
+     <HomeScreen />
+     {/* <h1>Mern App</h1> */}
     </>
   )
 }
